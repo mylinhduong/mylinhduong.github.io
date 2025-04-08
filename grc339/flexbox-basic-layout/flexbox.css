@@ -25,13 +25,13 @@ h3 {
 }
 
 article {
-	flex: 2 0 30em;
+	flex: 2 0 20em;
 	margin-right: 1.5em;
 	flex-wrap: wrap;
 }
 
 aside {
-	flex: 1 0 15em;
+	flex: 1 0 10em;
 	flex-direction: column;
 }
 
