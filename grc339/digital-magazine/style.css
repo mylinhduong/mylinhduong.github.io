@@ -442,4 +442,16 @@ form section h2 {
      h1 img {  
         opacity: 0;  
         }  
-}
+
+        h2.page-title {
+            color:#FEFAE0;
+        }
+
+        form section.personal-info label {
+            color: #FEFAE0;
+        }
+
+        form section.subscription-type label {
+            color: #FEFAE0;
+        }
+    }
