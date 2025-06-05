@@ -18,7 +18,7 @@ body {
     background-color: #FEFAE0;
 }
 
-div.container, div.home-container {
+div.container, div.home-container, div.container-gallery {
     max-width: 40em;
     margin: auto;
 }
@@ -115,14 +115,14 @@ aside {
 
 footer {
     width: 100%;
-    background: #F5CA2F;
-    margin: 0;
+    padding: 0.5em;
     box-sizing: border-box;
+    border-top: 1px solid #606C38;
 }
 
 footer p {
-    color: rgb(255,255,255);
-    padding: 0.5em 0.5em;
+    color: #052A3E;
+    margin-left: 0.5em;
     margin-bottom: 0;
 }
 
@@ -130,6 +130,9 @@ h1, h2, p {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
+
+
+/* MEDIA QUERIES */
 
 @media only screen and (min-width: 40em) {
     nav ul li {
@@ -158,6 +161,11 @@ h1, h2, p {
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-gap: 1em;
+    }
+
+    div.container-gallery {
+        max-width: 80em;
+        padding: 0.75em 1em;
     }
 
     header,footer {
@@ -235,38 +243,45 @@ h1, h2, p {
     section.secondarystoryteaser a p {
         flex: 0 0 4em;
     }
+
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 2em;
+    }
+    
+    section.personal-info {
+        grid-row: 1/4; 
+        margin-left: 1rem;
+    }
+
+    section.subscription-type {
+        grid-row: 1/2;
+    }
+    
+    section.feedback {
+        grid-row: 2/3;
+    }
+
+    button {
+        grid-row: 3/4;
+    }
 }
 
 /* PHOTO GALLERY */
 
-
-.photogallery {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-}
-
 main.gallery {
     position: relative;
     overflow: hidden;
-    max-width: 40em;
-    min-width: 40em;
-    margin: auto;
-    grid-column: 1/3;
-    aspect-ratio: 3 / 4;
+    padding-bottom: calc(65% + 2em);
 }
 
-main.gallery figure {
+main.gallery figure{
     margin: 0;
     width: 100%;
-    height: 100%;
     position: absolute;
     opacity: 0;
-    transition: opacity 0.5s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    transition: opacity 0.5s; 
 }
 
 main.gallery figure img {
@@ -278,17 +293,14 @@ nav.carousel {
     display: grid;
     grid-template-columns: repeat(8,1fr);
     grid-gap: 0.2em;
-    grid-column: 1/3;
-    max-width: 40em;
+    margin-top: 0;
 }
 
-nav.carousel img {
-    width: 100%;
-    padding: 0.5em 0 0;
-    height: 6em;
+nav.carousel label {
+    flex: 1 0 10em;
 }
 
-input {
+.photogallery input[type="radio"] {
     display: none;
 }
 
@@ -307,97 +319,127 @@ input:nth-of-type(8):checked ~ main figure:nth-of-type(8)
 
 /* NEWSLETTER */
 
-.newsletter-box {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background: #fff;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    margin: auto;
-    width: 80em;
-}
-
-.side {
-    flex: 1;
-    padding: 2em;
-    background-color: rgb(112,135,158);
-    color: #fff;
-}
-
-.side h2 {
+h2.page-title {
     font-family: "filmotype-maxwell", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 2.65em;
-    color: #FFF;
-    margin-bottom: 0.5em;
+    color: #052A3E;
+    font-size: 2em;
+    margin-left: 1rem;
 }
 
-.form {
-    flex: 1;
-    padding: 3em;
-    background-color: #f9f0a9;
+form {
+    margin-bottom: 1em;
 }
 
-input[type=text], input[type=submit] {
-    width: 100%;
-    padding: 0.5em;
-    margin: 0.5em 0;
-    display: inline-block;
-    border: 0.1em solid #ccc;
-    box-sizing: border-box;
+form ul {
+    list-style-type: none;
 }
 
-.personal-info h3, .Preferences h3 {
-    font-family: "filmotype-maxwell", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1em;
-    font-size: 1.65em;
-    color: #780000;
-    margin: 0.5rem 0.5rem;
+form section.personal-info li {
+    display: grid;
 }
 
-.newsletter-box p {
-    color: #fff;
+form li {
+    margin: 0.25em 0;
 }
 
-.Preferences ul {
-    list-style: none;
+form section {
+    margin-top: 0.75em;
 }
 
-.Preferences ul li {
-    margin-bottom: 0.5em;
+form section.personal-info input {
+    max-width: 25em;
+    padding: 0.25em;
 }
 
-input[type=checkbox] {
-    display: initial;
-}
-
-.Preferences ul li label {
+section.feedback textarea {
+    min-width: 25em;
     font-family: "filosofia", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 1.1em; 
 }
 
-input[type=submit] {
+input[type=text] {
     font-family: "filosofia", serif;
     font-weight: 400;
+    font-style: normal;
     font-size: 1em;
+}
+
+button {
+    font-family: "filmotype-maxwell", sans-serif;
+    font-weight: 400;
     font-style: normal;
-    text-transform: uppercase;
-    background-color: rgb(37,65,43);
-    color: #FFF;
-    border: none;
-    border-radius: 0.5em;
+    font-size: 1.2em;
+    color: #FAF4EF;
+    background-color: rgb(37, 65, 43);
+    width: 8em;
+    height: 3em;
+    border-style: none;
+    transition-duration: 0.2s;
+    padding: 1em;
 }
 
-input[type=submit]:hover {
-    background-color: #94a06d;
+button:hover {
+    background-color: #fffdf2;
+    color: rgb(37, 65, 43);
+    border: 1px solid rgb(37, 65, 43);
 }
 
-.submit {
-    padding: 0.5em;
+form section h2, button, form ul, form textarea {
+    margin-left: 0.75em;
+}
+
+form section h2 {
+    font-size: 1.5em;
+}
+
+
+/* CHANGE IN COLOR SCHEME */
+
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        background: #212121;
+}
+    body p {
+        color: #e6e4d5;
+    }
+
+    h2 {
+        color: rgb(249, 246, 182)
+    }
+
+    figcaption {
+        color: #FEFAE0;
+    }
+
+    nav ul li a {
+        color: #7993ad;
+    }
+
+    section.tertiarystoryteaser h2 {
+        border-top: 1px solid #919191;
+}
+
+    footer p {
+        color: #FEFAE0;
+    }
+
+    footer {
+        border-top: 1px solid #919191;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.5em;
+    }
+
+    h1 {  
+        background-image: url("HoaMaiLogoAlternative.svg");  
+        background-repeat: no-repeat;  
+        background-size: contain;  
+        }  
+    
+     h1 img {  
+        opacity: 0;  
+        }  
 }
