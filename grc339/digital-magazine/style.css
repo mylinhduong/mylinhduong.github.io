@@ -273,7 +273,8 @@ h1, h2, p {
 main.gallery {
     position: relative;
     overflow: hidden;
-    padding-bottom: calc(65% + 2em);
+    padding-bottom: calc(135% + 3em);
+    margin-bottom: 1em;
 }
 
 main.gallery figure{
@@ -285,8 +286,8 @@ main.gallery figure{
 }
 
 main.gallery figure img {
-    width: auto;
-    height: 50em;
+    width: 100%;
+    height: auto;
 }
 
 nav.carousel {
